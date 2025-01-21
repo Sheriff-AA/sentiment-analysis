@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from sentiment.views import analyze_text
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', analyze_text, name='analyzer_home'),
 ]
+
