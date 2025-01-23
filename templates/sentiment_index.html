@@ -2,11 +2,41 @@
 
 {% block content %}
 
-<form method="post">
+<form method="post" hx-post="{% url 'analyzer_home' %}" hx-target="#result-container" hx-indicator="#loading-indicator">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Submit</button>
 </form>
+
+
+<div id="loading-indicator" style="display:none;">Loading...</div>
+
+
+<div id="result-container">
+    {% if result %}
+        <div>
+            <h3>Analysis Result:</h3>
+            <pre>{{ result }}</pre>
+        </div>
+    {% endif %}
+</div>
+
+<script>
+    // Add a listener to show the loading indicator when the request starts and hide it when complete
+    document.addEventListener('htmx:configRequest', function(event) {
+        const indicator = document.querySelector('#loading-indicator');
+        if (indicator) {
+            indicator.style.display = 'block';
+        }
+    });
+
+    document.addEventListener('htmx:afterRequest', function(event) {
+        const indicator = document.querySelector('#loading-indicator');
+        if (indicator) {
+            indicator.style.display = 'none';
+        }
+    });
+</script>
 
 {% endblock content %}
 

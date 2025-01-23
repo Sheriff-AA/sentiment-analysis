@@ -10,23 +10,12 @@ class SentimentTextForm(forms.Form):
     task = forms.ChoiceField(
         choices=[
             ('sentiment', 'Sentiment Analysis'),
-            ('hate_speech', 'Hate Speech Detection'),
+            ('moderation', 'Moderation Radar'),
             ('emotion', 'Emotion Analysis'),
-            ('irony', 'Irony Detection')
         ],
         label="Task",
         required=True,
         initial='sentiment'
     )
-    language = forms.ChoiceField(
-        choices=[
-            ('en', 'English'),
-            ('es', 'Spanish'),
-            ('it', 'Italian'),
-            ('pt', 'Portuguese'),
-        ],
-        label="Language",
-        required=True,
-        initial='en'
-    )
+
 
