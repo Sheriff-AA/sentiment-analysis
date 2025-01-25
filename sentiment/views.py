@@ -10,6 +10,23 @@ SENTIMENT_API_URL = "https://api-inference.huggingface.co/models/finiteautomata/
 EMOTION_API_URL = "https://api-inference.huggingface.co/models/SamLowe/roberta-base-go_emotions"
 MODERATION_API_URL = "https://api-inference.huggingface.co/models/KoalaAI/Text-Moderation"
 
+MODERATION_CATEGORIES = {
+    'S': "SEXUAL",
+    'H': "HATE",
+    'V': "VIOLENCE",
+    'HR': "HARASSMENT",
+    'SH': "SELF-HARM",
+    'S3': "SEXUAL/MINORS",
+    'H2': "HATE/THREATENING",
+    'V2': "VIOLENCE/GRAPHIC",
+    'OK': "OKAY",
+}
+
+SENTIMENT_CATEGORIES = {
+    'NEU': "NEUTRAL",
+    'POS': "POSITIVE",
+    'NEG': "NEGATIVE",
+}
 
 HUFFINGFACE_API_KEY = config('HUGGING_FACE')
 headers = {"Authorization": f"Bearer {HUFFINGFACE_API_KEY}"}
@@ -29,10 +46,16 @@ def analyze_text(request):
             task = form.cleaned_data['task']
             if task == 'sentiment':
                 URL = SENTIMENT_API_URL
+                context.update({
+                    "categories": SENTIMENT_CATEGORIES
+                })
             elif task == 'emotion':
                 URL = EMOTION_API_URL
             elif task == 'moderation':
                 URL = MODERATION_API_URL
+                context.update({
+                    "categories": MODERATION_CATEGORIES
+                })
         
 
             payload = {
@@ -42,15 +65,14 @@ def analyze_text(request):
             response = requests.post(URL, headers=headers, json=payload)
             result = response.json()
 
-
-            if request.htmx:
-                return JsonResponse({'result': result})
-
             context.update(
                 {
                     'result': result
                 }
             )
+
+            if request.htmx:
+                return render(request, "results.html", context)
 
         else:
             return render(request, "sentiment_index.html", context)

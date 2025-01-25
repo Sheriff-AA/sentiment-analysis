@@ -12,18 +12,46 @@
     {% comment %} {% include 'css.html' %}  {% endcomment %}
     <script src="{% static 'vendors/htmx.min.js' %}"></script>
     <link rel="stylesheet" href="{% static 'src/output.css' %}"></link>
+    {% include 'navbar.html' %}
 
 
   </head>
 
   <body>
-    {% comment %} {% if not exclude_navbar %}
-        {% include 'navbar.html' %}
-    {% endif %} {% endcomment %}
+    
     {% block content %} 
     
     {% endblock content %}
   </body>
     {% comment %} {% include 'js.html' %} {% endcomment %}
+  <footer class="bg-white shadow dark:bg-gray-800 p-4">
+    <div class="w-full max-w-screen-full mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <a href="https://sherifproductions.com" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                <img src="https://sherifproductions.com/static/assets/logo.0ce75409e220.png" class="h-8" alt="SherifProd Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Sherif Productions</span>
+            </a>
+            <div class="flex gap-6 text-2xl">
+                <a href="https://github.com/Sheriff-AA" aria-label="Github">
+                    <i class="bi bi-github"></i>
+                </a>
+                <a href="#" aria-label="Twitter">
+                    <i class="bi bi-twitter-x"></i>
+                </a>
+                <a href="#" aria-label="Youtube">
+                    <i class="bi bi-youtube"></i>
+                </a>
+                <a href="https://stackoverflow.com/" aria-label="stackoverflow">
+                    <i class="bi bi-stack-overflow"></i>
+                </a>
+                <a href="mailto:a.sherifproduction@gmail.com" class="h-[40px] w-[40px]" aria-label="stackoverflow">
+                    <i class="bi bi-envelope-at-fill"></i>
+                </a>
+            </div>
+        </div>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="https://sherifproductions.com" class="hover:underline">SherifProductions™</a>. Made WITH ❤ by Sherif Atitebi</span>
+    </div>
+  </footer>
 </html>
 
