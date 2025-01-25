@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+node_modules/
+jspm_packages/
+
 staticfiles/vendors
 
 # C extensions

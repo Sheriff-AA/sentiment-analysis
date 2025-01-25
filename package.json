@@ -1,0 +1,28 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  },
+  "name": "sentiment-analysis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "tailwindcss -i staticfiles/src/input.css -o staticfiles/src/output.css --watch",
+    "build": "tailwindcss -i staticfiles/src/input.css  -o static/src/output.css --build --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sheriff-AA/sentiment-analysis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sheriff-AA/sentiment-analysis/issues"
+  },
+  "homepage": "https://github.com/Sheriff-AA/sentiment-analysis#readme",
+  "dependencies": {
+    "flowbite": "^3.0.0"
+  }
+}
