@@ -26,8 +26,14 @@ SECRET_KEY = config('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DJANGO_DEBUG', cast=bool)
 
-ALLOWED_HOSTS = []
+CSRF_TRUSTED_ORIGINS = [
+    config("CSRF_TRUSTED_ORIGINS"), 
+]
 
+
+ALLOWED_HOSTS = [
+    config("ALLOWED_HOST")
+]
 
 # Application definition
 
