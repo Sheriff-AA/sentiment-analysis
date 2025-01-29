@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+local-cdn/
 node_modules/
 jspm_packages/
 
