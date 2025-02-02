@@ -2,6 +2,8 @@
 
 This project is a Django-based web application for analyzing text sentiment, emotion, and moderation using various machine learning models from Hugging Face. The application allows users to input text and select a task (sentiment analysis, emotion analysis, or moderation radar) to get the analysis results.
 
+You can access the live website [here](https://phrase-sentiment-analysis.up.railway.app/)
+
 ## Table of Contents
 
 - [Technologies Used](#technologies-used)
@@ -129,5 +131,4 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
-```
 
